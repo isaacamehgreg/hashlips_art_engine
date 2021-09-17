@@ -165,8 +165,9 @@ const isDnaUnique = (_DnaList = [], _dna = []) => {
 };
 
 const createDna = (_layers) => {
-  
+
   let randNum = [];
+  
   _layers.forEach((layer) => {
     var totalWeight = 0;
     layer.elements.forEach((element) => {
@@ -203,18 +204,23 @@ const saveMetaDataSingleFile = (_editionCount) => {
 };
 
 
+
+
+
 //check create dna
 
 const startCreating = async () => {
   let layerConfigIndex = 0;
   let editionCount = 1;
   let failedCount = 0;
+
   while (layerConfigIndex < layerConfigurations.length) {
     const layers = layersSetup(
       layerConfigurations[layerConfigIndex].layersOrder
     );
+
     while (
-      editionCount <= layerConfigurations[layerConfigIndex].growEditionSizeTo
+      editionCount <= layerConfigurations[layerConfigIndex].growEditionSizeTo  //this makes sure the number iteration equals whats desire
     ) {
       let newDna = createDna(layers);
       if (isDnaUnique(dnaList, newDna)) {

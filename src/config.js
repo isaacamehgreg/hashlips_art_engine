@@ -15,6 +15,7 @@ const layerConfigurations = [
       { name: "Shine", count: 9 },
       { name: "Bottom lid" , count: 5 },
       { name: "Top lid", count: 5 },
+      { name: "Eyeballz", count: 5 },
       
     ],
   },
