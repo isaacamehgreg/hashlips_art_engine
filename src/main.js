@@ -58,9 +58,10 @@ const cleanName = (_str) => {
 
 const getElements = (path, count) => {   // do something like ( path, count)
   return fs
-    .readdirSync(path)
-    .filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))
+    .readdirSync(path) //this line goes into the filepath and returns an array
+    .filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))//this guy create an array of all the element that pass the test
     .map((i, index) => {
+
       return {
         id: index,
         name: cleanName(i),
@@ -68,6 +69,7 @@ const getElements = (path, count) => {   // do something like ( path, count)
         path: `${path}${i}`,
         weight: getRarityWeight(i),
       };
+      
     });
 };
 
