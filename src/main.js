@@ -22,6 +22,8 @@ var metadataList = [];
 var attributesList = [];
 var dnaList = [];
 
+
+
 const buildSetup = () => {
   if (fs.existsSync(buildDir)) {
     fs.rmdirSync(buildDir, { recursive: true });
@@ -51,7 +53,9 @@ const cleanName = (_str) => {
   return nameWithoutWeight;
 };
 
-const getElements = (path) => {
+//get element picks file from the file path
+
+const getElements = (path) => { 
   return fs
     .readdirSync(path)
     .filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))
@@ -66,6 +70,8 @@ const getElements = (path) => {
     });
 };
 
+
+//check this picks the image
 const layersSetup = (layersOrder) => {
   const layers = layersOrder.map((layerObj, index) => ({
     id: index,
@@ -190,6 +196,9 @@ const saveMetaDataSingleFile = (_editionCount) => {
     )
   );
 };
+
+
+//check create dna
 
 const startCreating = async () => {
   let layerConfigIndex = 0;
