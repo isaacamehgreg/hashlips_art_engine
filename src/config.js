@@ -5,15 +5,17 @@ const baseUri = "https://hashlips/nft";
 
 const layerConfigurations = [
   {
-    growEditionSizeTo: 10,
+    growEditionSizeTo: 350, //this will have to adjust to accormodate the new total
+
     layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+      { name: "Background", count: 5 },
+      { name: "Eyeball" , count: 20 },
+      { name: "Eye color" , count: 7},
+      { name: "Iris" , count: 8 },
+      { name: "Shine", count: 9 },
+      { name: "Bottom lid" , count: 5 },
+      { name: "Top lid", count: 5 },
+      
     ],
   },
 ];

@@ -24,6 +24,7 @@ var dnaList = [];
 
 
 
+
 const buildSetup = () => {
   if (fs.existsSync(buildDir)) {
     fs.rmdirSync(buildDir, { recursive: true });
@@ -55,7 +56,7 @@ const cleanName = (_str) => {
 
 //get element picks file from the file path
 
-const getElements = (path) => { 
+const getElements = (path, count) => {   // do something like ( path, count)
   return fs
     .readdirSync(path)
     .filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))
@@ -76,7 +77,8 @@ const layersSetup = (layersOrder) => {
   const layers = layersOrder.map((layerObj, index) => ({
     id: index,
     name: layerObj.name,
-    elements: getElements(`${layersDir}/${layerObj.name}/`),
+    count: layerObj.count,
+    elements: getElements(`${layersDir}/${layerObj.name}/`, layerObj.count),// add a "/$layerObj.count to pass the number you want it to count"
     blendMode:
       layerObj["blend"] != undefined ? layerObj["blend"] : "source-over",
     opacity: layerObj["opacity"] != undefined ? layerObj["opacity"] : 1,
