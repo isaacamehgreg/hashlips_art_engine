@@ -69,7 +69,7 @@ const getElements = (path, count) => {   // do something like ( path, count)
         path: `${path}${i}`,
         weight: getRarityWeight(i),
       };
-      
+
     });
 };
 
@@ -165,6 +165,7 @@ const isDnaUnique = (_DnaList = [], _dna = []) => {
 };
 
 const createDna = (_layers) => {
+  
   let randNum = [];
   _layers.forEach((layer) => {
     var totalWeight = 0;
