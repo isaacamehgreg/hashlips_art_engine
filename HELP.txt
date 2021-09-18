@@ -1,0 +1,14 @@
+configure the count property in the "src/config.js" 
+file to the desired number of iterations you want per folders
+note  some times you may need to provide high number for the iterations to occur
+
+a) "npm run start"  this sort the images with respect to the count provided, then place them in a folder for iteration
+b) "npm run build"  this goes into the new structured folder and pick images from different folders to create a single images
+
+
+note if you get an error while running "npm run build" it just mean the npm run start picked images that are not surficient enough to give the final output
+so run (a) and (b) again
+
+
+
+Regards Isaac

@@ -5,7 +5,7 @@ const { createCanvas, loadImage } = require("canvas");
 const isLocal = typeof process.pkg === "undefined";
 const basePath = isLocal ? process.cwd() : path.dirname(process.execPath);
 const buildDir = `${basePath}/build`;
-const layersDir = `${basePath}/layx`;
+const layersDir = `${basePath}/layersx`;
 const {
   format,
   baseUri,

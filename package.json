@@ -16,10 +16,10 @@
   },
   "scripts": {
     "build": "node index.js",
-    "brain": "node brain.js",
+    "start": "node brain.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Daniel Eugene Botha (HashLips)",
+  "author": "Daniel Eugene Botha (HashLips) edited by Isaacamehgreg@gmail.com",
   "license": "MIT",
   "dependencies": {
     "canvas": "^2.8.0",

@@ -8,7 +8,7 @@ const basePath = isLocal ? process.cwd() : path.dirname(process.execPath);
 const {layerConfigurations} = require(path.join(basePath, "/src/config.js"));
 
 const config = layerConfigurations[0].layersOrder;
-const mainFolderDir = 'layers';
+const mainFolderDir = 'layersx';
 const copyFolderDir = 'lay'
 
 
