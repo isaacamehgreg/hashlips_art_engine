@@ -13,42 +13,44 @@ const copyFolderDir = 'lay'
 
 
 //rename the folders then initialize the application after application is done rename it back 
-const renameFolder =()=> {
-
+const initializeNewFolder =()=> {
+  console.log('init new folder');
    try{
     //  fse.emptyDirSync(path.join(basePath, copyFolderDir))
     //  fs.renameSync(path.join(basePath, copyFolderDir), path.join(basePath, mainFolderDir))
     var check = fse.existsSync(path.join(basePath, mainFolderDir))
-      console.log(check);
+      console.log(check );
       if(check) {
-        fse.removeSync(path.join(basePath, mainFolderDir))
+        fse.removeSync(path.join(basePath, mainFolderDir));
       }
-      fse.mkdirs(path.join(basePath, mainFolderDir));
+      fse.mkdirSync(path.join(basePath, mainFolderDir));
+
+      getPath();
        
-
-
-
-
     }
    catch(err){console.log(err)};
+
    return
 }
-renameFolder()
+
 
 // Async/Await:
 async function copyFiles (folderName, fileName) {
+  console.log('copyfiles');
   try {
-    await fse.copy('./'+mainFolderDir+'/'+folderName+'/'+fileName , './'+copyFolderDir+'/'+ folderName + '/' + fileName);
+    await fse.copy('./'+copyFolderDir+'/'+folderName+'/'+fileName , './'+mainFolderDir+'/'+ folderName + '/' + fileName);
     console.log('success!: copied ' + fileName + ' to ' + folderName);
   } catch (err) {
-    console.error(err)
+    console.error("an error occur"+err)
   }
+
 }
 
 //copyFiles('Background', 'Black#1.png')
 
 const intializeCopyFile =(folderName, newFolderArray) => {
-   console.log(folderName, newFolderArray);
+  console.log('initialize copy');
+  // console.log(folderName, newFolderArray);
    newFolderArray.map((file, index)=>{
        copyFiles(folderName, file)
    }) 
@@ -58,7 +60,7 @@ const intializeCopyFile =(folderName, newFolderArray) => {
 
 
 const picker = (newPath, count, folderName) =>{ 
-
+  console.log('picker');
   var folder = fs.readdirSync(newPath).filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))//this guy create an array of all the element that pass the test
   var newFolderArray = []
   for(var i = 0; i < count; i++) {
@@ -73,16 +75,21 @@ const picker = (newPath, count, folderName) =>{
 }
 
 const getPath = ()=>{
-
+   console.log('getPath');
     config.map((folder, index)=>{
    //     console.log(folder.name +" = " + folder.count);  
-        var newPath = path.join(basePath, mainFolderDir, folder.name);
+        var newPath = path.join(basePath, copyFolderDir, folder.name);
      //   console.log(newPath)
         picker(newPath, folder.count, folder.name)
         return
     })
 }
-//getPath()
+
+initializeNewFolder()
+
+//module.exports = initializeNewFolder
+
+
 
 
 
