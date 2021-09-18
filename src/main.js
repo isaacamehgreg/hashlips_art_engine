@@ -44,8 +44,11 @@ const getRarityWeight = (_str) => {
 };
 
 const cleanDna = (_str) => {
+  
   var dna = Number(_str.split(":").shift());
+            
   return dna;
+
 };
 
 const cleanName = (_str) => {
@@ -58,32 +61,44 @@ const cleanName = (_str) => {
 
 const getElements = (path, count) => {   // do something like ( path, count)
   
-  var folder = fs.readdirSync(path).filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))//this guy create an array of all the element that pass the test
+//   var folder = fs.readdirSync(path).filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))//this guy create an array of all the element that pass the test
    
- // console.log(count, folder);
+//   var newFolderArray = []
+//   for(var i = 0; i < count; i++) {
+//      var pickRandomly = Math.floor(Math.random() *((folder.length-1) - 0) - 0);
+//      newFolderArray.push(folder[pickRandomly]);
+//   }
+ 
+//  return newFolderArray.map((i, index) => {
+      
+//       return {
+//         id: index,
+//         name: cleanName(i),
+//         filename: i,
+//         path: `${path}${i}`,
+//         weight: getRarityWeight(i),
+//       };
 
-  // i will make a new array with the count provided
-  var newFolderArray = []
-  for(var i = 0; i < count; i++) {
-     var pickRandomly = Math.floor(Math.random() *((folder.length-1) - 0) - 0);
-     newFolderArray.push(folder[pickRandomly]);
-  }
-  console.log('try')
-  console.log(count, newFolderArray);
+//     });
+ 
+
+
+
+return  fs
+.readdirSync(path)
+.filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))
+.map((i, index) => {
   
+  return {
+    id: index,
+    name: cleanName(i),
+    filename: i,
+    path: `${path}${i}`,
+    weight: getRarityWeight(i),
+  };
+})
 
 
-    // .map((i, index) => {
-
-    //   return {
-    //     id: index,
-    //     name: cleanName(i),
-    //     filename: i,
-    //     path: `${path}${i}`,
-    //     weight: getRarityWeight(i),
-    //   };
-
-    // });
 };
 
 
