@@ -57,25 +57,39 @@ const cleanName = (_str) => {
 //get element picks file from the file path
 
 const getElements = (path, count) => {   // do something like ( path, count)
-  return fs
-    .readdirSync(path) //this line goes into the filepath and returns an array
-    .filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))//this guy create an array of all the element that pass the test
-    .map((i, index) => {
+  
+  var folder = fs.readdirSync(path).filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))//this guy create an array of all the element that pass the test
+   
+ // console.log(count, folder);
 
-      return {
-        id: index,
-        name: cleanName(i),
-        filename: i,
-        path: `${path}${i}`,
-        weight: getRarityWeight(i),
-      };
+  // i will make a new array with the count provided
+  var newFolderArray = []
+  for(var i = 0; i < count; i++) {
+     var pickRandomly = Math.floor(Math.random() *((folder.length-1) - 0) - 0);
+     newFolderArray.push(folder[pickRandomly]);
+  }
+  console.log('try')
+  console.log(count, newFolderArray);
+  
 
-    });
+
+    // .map((i, index) => {
+
+    //   return {
+    //     id: index,
+    //     name: cleanName(i),
+    //     filename: i,
+    //     path: `${path}${i}`,
+    //     weight: getRarityWeight(i),
+    //   };
+
+    // });
 };
 
 
 //check this picks the image
 const layersSetup = (layersOrder) => {
+
   const layers = layersOrder.map((layerObj, index) => ({
     id: index,
     name: layerObj.name,
@@ -123,6 +137,7 @@ const addMetadata = (_dna, _edition) => {
 };
 
 const addAttributes = (_element) => {
+
   let selectedElement = _element.layer.selectedElement;
   attributesList.push({
     trait_type: _element.layer.name,
@@ -167,7 +182,7 @@ const isDnaUnique = (_DnaList = [], _dna = []) => {
 const createDna = (_layers) => {
 
   let randNum = [];
-  
+
   _layers.forEach((layer) => {
     var totalWeight = 0;
     layer.elements.forEach((element) => {

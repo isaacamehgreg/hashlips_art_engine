@@ -9,13 +9,13 @@ const layerConfigurations = [
 
     layersOrder: [
       { name: "Background", count: 5 },
-      { name: "Eyeball" , count: 20 },
+      { name: "Eyeball" , count: 12 },
       { name: "Eye color" , count: 7},
       { name: "Iris" , count: 8 },
       { name: "Shine", count: 9 },
       { name: "Bottom lid" , count: 5 },
       { name: "Top lid", count: 5 },
-      { name: "Eyeballz", count: 5 },
+     
       
     ],
   },
