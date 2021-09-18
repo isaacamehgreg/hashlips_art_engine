@@ -5,7 +5,7 @@ const baseUri = "https://hashlips/nft";
 
 const layerConfigurations = [
   {
-    growEditionSizeTo: 200, //this will have to adjust to accormodate the new total
+    growEditionSizeTo: 20, //this will have to adjust to accormodate the new total
 
     layersOrder: [
       { name: "Background", count: 16 },
