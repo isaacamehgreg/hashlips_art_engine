@@ -8,12 +8,12 @@ const layerConfigurations = [
     growEditionSizeTo: 10, //this will have to adjust to accormodate the new total
 
     layersOrder: [
-      { name: "Background", count: 6 },
-      { name: "Eyeball" , count: 12 },
+      { name: "Background", count: 7 },
+      { name: "Eyeball" , count: 4 },
       { name: "Eye color" , count: 7},
       { name: "Iris" , count: 8 },
-      { name: "Shine", count: 20 },
-      { name: "Bottom lid" , count: 9 },
+      { name: "Shine", count: 2 },
+      { name: "Bottom lid" , count: 3},
       { name: "Top lid", count: 5 },
      
       
